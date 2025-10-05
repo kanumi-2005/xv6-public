@@ -146,7 +146,7 @@ vectors.S: vectors.pl
 
 ULIB = ulib.o usys.o printf.o umalloc.o
 
-_%: %.o $(ULIB)
+_%: %.o $(ULIB) uprogs.ld
 	$(LD) $(LDFLAGS) -T uprogs.ld -N -e main -Ttext 0 -o $@ $^
 	$(OBJDUMP) -S $@ > $*.asm
 	$(OBJDUMP) -t $@ | sed '1,/SYMBOL TABLE/d; s/ .* / /; /^$$/d' > $*.sym
