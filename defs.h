@@ -10,6 +10,9 @@ struct sleeplock;
 struct stat;
 struct superblock;
 
+// acpi.c
+void            acpi_init(void);
+
 // bio.c
 void            binit(void);
 struct buf*     bread(uint, uint);
@@ -88,8 +91,8 @@ void            begin_op();
 void            end_op();
 
 // mp.c
-extern int      ismp;
-void            mpinit(void);
+// extern int      ismp;
+// void            mpinit(void);
 
 // picirq.c
 void            picenable(int);

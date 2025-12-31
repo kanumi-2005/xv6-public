@@ -19,7 +19,8 @@ main(void)
 {
   kinit1(end, P2V(4*1024*1024)); // phys page allocator
   kvmalloc();      // kernel page table
-  mpinit();        // detect other processors
+  // mpinit();        // detect other processors
+  acpi_init();     // detect other processors use acpi specs
   lapicinit();     // interrupt controller
   seginit();       // segment descriptors
   picinit();       // disable pic

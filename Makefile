@@ -11,7 +11,7 @@ OBJS = \
 	lapic.o\
 	log.o\
 	main.o\
-	mp.o\
+	acpi.o\
 	picirq.o\
 	pipe.o\
 	proc.o\
@@ -77,7 +77,7 @@ LD = $(TOOLPREFIX)ld
 OBJCOPY = $(TOOLPREFIX)objcopy
 OBJDUMP = $(TOOLPREFIX)objdump
 CFLAGS = -fno-pic -static -fno-builtin -fno-strict-aliasing -O2 -Wall -MD -ggdb -m32 -Werror -fno-omit-frame-pointer
-CFLAGS += -Wno-infinite-recursion -Wno-array-bounds -mno-sse -mno-sse2 -mno-mmx
+CFLAGS += -Wno-infinite-recursion -Wno-array-bounds -mno-mmx -mno-sse -mno-avx -Wno-address-of-packed-member
 CFLAGS += $(shell $(CC) -fno-stack-protector -E -x c /dev/null >/dev/null 2>&1 && echo -fno-stack-protector)
 ASFLAGS = -m32 -gdwarf-2 -Wa,-divide
 # FreeBSD ld wants ``elf_i386_fbsd''
